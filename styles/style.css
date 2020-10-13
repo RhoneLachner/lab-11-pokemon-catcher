@@ -67,6 +67,7 @@ footer {
 }
 
 
+
 h2 {
     font-size: 1.8rem;
     font-weight: bold;
@@ -85,6 +86,9 @@ header img {
 }
 
 
+#catchTitle{
+    font-size: 26;
+}
 
 content {
     width: 80%;
