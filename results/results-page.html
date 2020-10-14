@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+ 
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> 
     <title>Document</title>
 </head>
 
@@ -21,9 +23,16 @@
     <main>
         <section class="main-section">
           <div id="resultsDiv">
-              <p id="pokemonEncounters">beeop</p>
-              <p id="pokemonCaptured">booiip</p>
+              <p id="pokemonEncounters"></p>
+              <p id="pokemonCaptured"></p>
           </div>
+          
+          <section class="chart">
+            <canvas id="myChart" width="400" height="400"></canvas>
+          </section>
+          <section class="chart">
+            <canvas id="myChart2" width="400" height="400"></canvas>
+          </section>
 
         </section>
         <div id="restartButtonDiv">
@@ -36,7 +45,8 @@
         <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
     </footer>
 
-    <script type="module" src="../app.js"></script>
+    <script type="module" src="./results-page.js"></script>
+    
 </body>
 
 </html>
