@@ -81,7 +81,7 @@ export const pokemonData = [
         type:'bug',
         encountered: 0,
         captured: 0,
-        'url_image':'http://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png',
+        image:'http://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png',
      },
      { 
         name:'weedle',
