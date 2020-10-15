@@ -19,13 +19,21 @@ body {
     --color4: hsla(45, 73%, 98%, 1);
     --color5: hsla(224, 40%, 79%, 1); */
     
-    --header-height: 80px;
+    
     --shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
-    --gutter: 30px;
-    --footer-height: 25px;
+    --gutter: 50px;
+    --footer-height:30px;
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
+}
+#pokemonEncounters{
+    font-size: 30px;
+}
+body {
+    background-image: url('../assets/professor-oak.png');
+    background-repeat: repeat-y;
+    background-size: cover;
 }
 
 main {
@@ -34,6 +42,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    background-color: rgba(255, 255, 255, 0);
 }
 
 section {
@@ -49,6 +58,8 @@ section {
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
     border: solid 2px var(--color1);
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0);
 }
 
 header {
@@ -59,14 +70,21 @@ header {
     box-shadow: var(--shadow);
 }
 
+.chart {
+    background-color: rgba(255, 255, 255, 0.685);
+}
+#restartButton {
+    width: 300px; 
+    height: 60px;   
+    background-color: #35f1f7e3;
+    font-size: 25px;
+    }
 footer {
     display: flex;
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
-
-
 
 h2 {
     font-size: 1.8rem;
@@ -85,9 +103,18 @@ header img {
     height: var(--header-height);
 }
 
-
 #catchTitle{
-    font-size: 26;
+    font-size: 40;
+}
+
+#throwButton {
+width: 200px; 
+height: 60px;   
+}
+
+.pokemonRadioButton {
+    width: 200px;
+    height: 200px;
 }
 
 content {

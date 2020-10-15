@@ -96,15 +96,21 @@ for (let i = 0; i < radios.length; i++) {
                 images[i].style.opacity = 1;
             }
         });
+
         //RESULTSARRAY IS CAPTURED POKEMON
         let capturedPokemon = findById(resultsArray, (e.target.value));
         if (capturedPokemon) {
             capturedPokemon.captured++;
         } console.log(capturedPokemon, resultsArray, 'look here!');
-
+        const pokeball = e.target.value;
+        if (pokeball) {
+            images[i].src = './assets/pokeball.png';
+        }
 
         for (let i = 0; i < radios.length; i++) {
-            images[i].style.opacity = .5;
+            images[i].style.opacity = 1;
+       
+    
         }
     });
     console.log(radios);
