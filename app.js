@@ -1,9 +1,10 @@
 // import functions and grab DOM elements
 import { pokemonData } from './data.js';
 import { CART } from './constants.js';
+import { setInLocalStorage } from './utils.js';
 
 
-const throwButton = document.querySelector('button');
+const throwButton = document.getElementById('throwButton');
 const radios = document.querySelectorAll('input');
 const images = document.querySelectorAll('label > img');
 
@@ -11,40 +12,41 @@ const resultsArray = [];
 
 // initialize state
 export let numOfThrows = 0;
-//let remainingPokemon = 0;
+
 
 
 export function getRandomPokemon(array) {
     const index = Math.floor(Math.random() * array.length);
     return array[index];
 }
-//refreshPokemon();
+//REFRESH POKEMON FUNCTION CALLED HERE
+refreshPokemon();
 export function refreshPokemon() {
-    //console.log(resultsArray);
+
+    console.log(resultsArray);
+
     let selectionOne = getRandomPokemon(pokemonData);
     let selectionTwo = getRandomPokemon(pokemonData);
     let selectionThree = getRandomPokemon(pokemonData);
-    //refreshPokemon();
+   
     //console.log(selectionTwo, selectionThree, selectionOne);
 
     while (selectionOne.id === selectionTwo.id || selectionTwo.id === selectionThree.id || selectionThree.id === selectionOne.id) {
         selectionTwo = getRandomPokemon(pokemonData);  
         selectionThree = getRandomPokemon(pokemonData);
     }
-    // while (selectionTwo.id === selectionThree.id) {
-    //     selectionTwo = getRandomPokemon(pokemonData);
-    // }
-    // while (selectionThree.id === selectionOne.id) {
-    //     selectionThree = getRandomPokemon(pokemonData);
-    // }
+ 
     radios[0].value = selectionOne.id;
     images[0].src = selectionOne.image;
-    
+    radios[0].checked = false; 
+
     radios[1].value = selectionTwo.id;
     images[1].src = selectionTwo.image;
-    
+    radios[0].checked = false; 
+
     radios[2].value = selectionThree.id;
     images[2].src = selectionThree.image;
+    radios[0].checked = false; 
 
 
     for (let i = 0; i < radios.length; i++) {
@@ -75,16 +77,17 @@ for (let i = 0; i < radios.length; i++) {
           //  console.log(radio.value);
 
             if (!pokemon) {
-                //const newPokemon = 
+             
                 findById(pokemonData, (radio.value));
                 pokemon = {
                     id: (radio.value),
-                    //name: newPokemon.pokemon,
                     encountered: 1,
                     captured: 0,
                 };
                 resultsArray.push(pokemon);
+
             } else {
+
                 pokemon.encountered++;
             } 
             for (let i = 0; i < radios.length; i++) {
@@ -92,17 +95,22 @@ for (let i = 0; i < radios.length; i++) {
                 radios[i].checked = false;
                 images[i].style.opacity = 1;
             }
-
         });
 
+        //RESULTSARRAY IS CAPTURED POKEMON
         let capturedPokemon = findById(resultsArray, (e.target.value));
         if (capturedPokemon) {
             capturedPokemon.captured++;
         } console.log(capturedPokemon, resultsArray, 'look here!');
-
+        const pokeball = e.target.value;
+        if (pokeball) {
+            images[i].src = './assets/pokeball.png';
+        }
 
         for (let i = 0; i < radios.length; i++) {
-            images[i].style.opacity = .5;
+            images[i].style.opacity = 1;
+       
+    
         }
     });
     console.log(radios);
@@ -113,7 +121,9 @@ throwButton.addEventListener('click', () => {
     numOfThrows += 1;
     console.log(numOfThrows);
     if (numOfThrows === 9) {
+        setInLocalStorage(CART, resultsArray);
         location.href = './results/results-page.html';
+
     }
 
     //results.classlist.toggle('hidden');
@@ -125,20 +135,22 @@ throwButton.addEventListener('click', () => {
 
 
 
-export function getFromLocalStorage(key) {
-    const item = localStorage.getItem(key);
-    
-    return JSON.parse(item);
-}
-    
-    // setInLocalStorageFunction BEGINS HERE.
-export function setInLocalStorage(key, value) {
-    const stringyItem = JSON.stringify(value);
-    
-    localStorage.setItem(key, stringyItem);
-    
-    return value;
-}
+
+
+
+
+
+
+
+// export function addProduct(newItem){
+//     const localStorageTools = getLocalStorageTools();
+
+//     localStorageTools.push(newItem);
+
+//     const stringyLocalProduct = JSON.stringify(localStorageTools);
+//     localStorage.setItem(CART, stringyLocalProduct);
+// }
+
 
 
 

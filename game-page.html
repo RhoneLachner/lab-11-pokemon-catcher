@@ -7,42 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/home.css">
+    
     <title>Document</title>
 </head>
 
 <body>
     <header>
         <div class="gutter-right logo">
-            <img src="assets/big-logo.png"/>
+    
         </div>
     </header>
     <main>
         <section class="main-section">
-            <h1 id="catchTitle">Gotta Catch 'Em All!</h1>
+            <p id="catchTitle">Welcome!</p>
+            <div id="pokemonLogo" >
+          
+        </div>
+            <div id="rulesDiv">
             <p id="rules">You have been given 10 magic PokeBalls guaranteed to catch a pokemon each throw... 
                 but which pokemon will you encounter? Please click on a Pokemon, and press "throw" below to catch it! 
-                A new set of potential friends will appear each round, and results will be displayed after 10 throws. </p>
+                A new set of potential friends will appear each round, and results will be displayed after 10 throws. 
+            </p>
+        </div>
 <div id="pokemonImageDiv">
-   
-    <label>
-            <input type="radio" name="selectionOne" />
+    <label class="pokemonRadioButton">
+            <input class="radioButton" type="radio" checked="true"  name="selectionOne" />
             <img />
     </label>
-    <label>
-            <input type="radio" name="selectionTwo" />
+    <label class="pokemonRadioButton">
+            <input class="radioButton" type="radio" name="selectionTwo" />
             <img />
     </label>
-    <label>
-        <input type="radio" name="selectionThree"/>
+    <label class="pokemonRadioButton">
+        <input class="radioButton" type="radio" name="selectionThree"/>
         <img />
     </label>
 </div>
     
     <div id="throwButtonDiv">
         <div id="capturedPokemonDiv"></div>
-        <button id="throwButton">THROW!</button>
+        <button id="throwButton">CATCH!</button>
     </div>
 
 
