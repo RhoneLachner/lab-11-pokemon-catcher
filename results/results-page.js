@@ -37,7 +37,7 @@ console.log(pokemonCaptured, pokemonEncounters, pokemonLabels);
 restartButton.addEventListener('click', () => {
 
     localStorage.clear();
-    window.location.href = '../game-page.html';
+    window.location.href = '../index.html';
    
     
 });
